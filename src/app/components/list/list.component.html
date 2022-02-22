@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Lista de recetas</h1>
+    <div class="tui-row">
+        <div *ngFor="let recipe of recipes" class="tui-col_md-3">
+            <tui-island size="l" textAlign="center">
+                <div class="tui-island__content">
+                    <figure class="tui-island__figure">
+                        <div class="some-figure">
+                            <img src="https://cdn7.recetasdeescandalo.com/wp-content/uploads/2018/07/Ratatouille-la-receta-de-la-pelicula.-Deliciosas-verduras-al-horno.jpg"
+                                alt="Foto de la receta">
+                        </div>
+                    </figure>
+                    <div>
+                        <h3 class="tui-island__title">{{ recipe.title }}</h3>
+                        <p class="tui-island__paragraph">
+                            {{ recipe.description }}
+                        </p>
+                        <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button"
+                            [routerLink]="['detail', recipe.id]">
+                            Ver más
+                        </button>
+                    </div>
+                </div>
+            </tui-island>
+        </div>
+    </div>
+</div>

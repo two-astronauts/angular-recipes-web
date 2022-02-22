@@ -1,0 +1,51 @@
+<div class="container">
+    <form class="b-form" [formGroup]="recipeForm">
+        <div class="tui-row">
+            <h1 *ngIf="mode === 'view'">{{ recipe.title }}</h1>
+            <tui-input *ngIf="mode !== 'view'" class="app-input" formControlName="title">
+                Titulo
+                <input tuiTextfield type="text" />
+            </tui-input>
+        </div>
+        <div *ngIf="mode === 'view'" class="tui-row">
+            <button tuiButton type="button" appearance="outline" shape="rounded"
+                class="tui-space_right-3 tui-space_bottom-3" routerLink="">
+                Atrás
+            </button>
+            <button tuiButton type="button" appearance="outline" shape="rounded"
+                class="tui-space_right-3 tui-space_bottom-3" (click)="add()">
+                Agregar
+            </button>
+            <button tuiButton type="button" appearance="outline" shape="rounded"
+                class="tui-space_right-3 tui-space_bottom-3" (click)="edit()">
+                Editar
+            </button>
+        </div>
+        <div class="tui-row">
+            <p *ngIf="mode === 'view'">
+                {{ recipe.description }}
+            </p>
+            <tui-input *ngIf="mode !== 'view'" class="app-input description" formControlName="description">
+                Descripción
+                <input tuiTextfield type="text" />
+            </tui-input>
+        </div>
+        <div class="tui-row">
+            <tui-editor *ngIf="mode !== 'view'" exampleText="Escribe tu receta con plantillas" class="editor" [(ngModel)]="recipe.detail" [ngModelOptions]="{standalone: true}">
+                Escribe tu receta
+            </tui-editor>
+    
+            <tui-editor-socket *ngIf="mode === 'view'" [content]="recipe.detail"></tui-editor-socket>
+        </div>
+        <div *ngIf="mode !== 'view'" class="tui-row">
+            <button tuiButton type="button" appearance="outline" shape="rounded"
+                class="tui-space_right-3 tui-space_bottom-3" (click)="cancel()">
+                Cancelar
+            </button>
+            <button tuiButton type="button" appearance="outline" shape="rounded"
+                class="tui-space_right-3 tui-space_bottom-3" (click)="saveUpdate()">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>
