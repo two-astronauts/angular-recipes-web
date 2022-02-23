@@ -1,6 +1,10 @@
 {
   "name": "angular-recipes-web",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.3.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -28,6 +32,8 @@
     "@taiga-ui/kit": "^2.35.0",
     "@tinkoff/ng-dompurify": "3.0.0",
     "dompurify": "2.2.9",
+    "express": "^4.17.3",
+    "path": "^0.12.7",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
